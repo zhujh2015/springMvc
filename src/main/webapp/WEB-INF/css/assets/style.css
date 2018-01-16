@@ -1,0 +1,21 @@
+/*图片大小设置*/
+.carousel-inner > .item > img {
+    min-width: 100%;
+    height: 300px;
+}
+/*网格图片*/
+.case {
+    text-align: center;
+    margin-top: 20px;
+}
+.case img {
+    height: 200px;
+}
+/*案例*/
+.screenshot .item {
+   border-top: 1px solid #CCC;
+    padding-bottom: 30px;
+    padding-top: 200px;
+}
+
+/*自定义样式*/

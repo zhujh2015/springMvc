@@ -1,0 +1,6 @@
+CREATE TABLE `userinfotemp` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `UserName` varchar(255) DEFAULT NULL,
+  `UserCode` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

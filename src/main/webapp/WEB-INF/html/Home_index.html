@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap.min.css">
+    <script src="../js/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap/js/bootstrap.min.js"></script>
+    <link href="../css/assets/style.css" rel="stylesheet">
+</head>
+<body>
+<!--参照文章地址：https://www.jianshu.com/p/a297161a0da2 -->
+<!--导航-->
+<div class="nav">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">微信公众号管家</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">微信公众号管家</a>
+    </div>
+    <!--导航-->
+     <ul class="nav navbar-nav">
+                <li class="active"><a href="">首页</a></li>
+                <li><a href="">关于</a></li>
+                <li><a href="">登录</a></li>
+            </ul>
+
+</div>
+
+
+<div class="page-header">
+    <h1>四光年科技<small>有价值的、有趣的信息服务</small></h1>
+</div>
+<blockquote>
+    <p>交给你全栈开发的一招一式，我们不会装作什么都懂，也不会教你花架子，只是能保证你学完后，拥有自己的一套内功心法，能举一反三，轻松写代码</p>
+</blockquote>
+
+<mark>高亮 </mark>
+ <del>删除</del>
+ <strong>着重</strong>
+ <ins>插入的文本</ins>
+<p><strong>程序员修炼之道</strong></p>
+<p><mark>“衣带渐宽终不悔，为伊消得人憔悴”</mark>，编程大约有三个境界，新手、高手和<del>高不成低不就的中手</del>，适合新手的教程很多，指导中手的教程却很少；没有几十万行代码的锤炼或者长期在一个高手团队里打磨切磋，中手需要在这个层次“众里寻他千百度”，才能“蓦然回首”。 <ins>我们偏好实践，以正确的原则指导正确的行动</ins></p>
+<!--行内代码 和块代码-->
+<p>听说 PHP 很简单，常用的函数有<code>echo</code>、<code>is_array</code>、<code>mysql_connect</code>等等</p>
+<p>
+    例如
+     <pre>
+     // example
+     if($a == 1){
+         echo 'variable a = 1';
+     }else{
+         echo 'variable a = 2';
+     }
+     </pre>
+</p>
+
+<!--按钮-->
+<p class="text-center">
+    <button class="btn btn-primary">顶</button>
+    <button class="btn btn-danger">踩</button>
+</p>
+
+
+<!--轮播图 已经自带了一个轮播组件—— Carousel -->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators 指示器 图片下方的白色小点 标记当前播放到的图片-->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="../image/assets/slide_1.jpg">
+            <div class="carousel-caption">
+                <h1>轮播1的标题</h1>
+                <p>这里是轮播图1的说明</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../image/assets/slide_2.jpg">
+            <div class="carousel-caption">
+                <h1>轮播2的标题</h1>
+                <p>这里是轮播图2的说明</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../image/assets/slide_3.jpg">
+            <div class="carousel-caption">
+                <h1>轮播3的标题</h1>
+                <p>这里是轮播图3的说明</p>
+            </div>
+        </div>
+    </div>
+    <!-- Controls 可以手动操作-->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">上一个</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">下一个</span>
+    </a>
+</div>
+<!-- 栅格布局方式  默认共12份，-N 标示占N 份 -->
+<!--案例-->
+<div class="case container">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="../image/assets/case_1.jpg" class="img-circle">
+            <h2>案例1</h2>
+            <p>非常不错的产品，我很喜欢</p>
+        </div>
+        <div class="col-md-3">
+            <img src="../image/assets/case_2.jpg" class="img-rounded">
+            <h2>案例2</h2>
+            <p>非常不错的产品，我很喜欢</p>
+        </div>
+        <div class="col-md-3">
+            <img src="../image/assets/case_3.jpg" class="img-thumbnail">
+            <h2>案例3</h2>
+            <p>非常不错的产品，我很喜欢</p>
+        </div>
+        <div class="col-md-3">
+            <img src="../image/assets/case_1.jpg" class="img-circle">
+            <h2>案例1</h2>
+            <p>非常不错的产品，我很喜欢</p>
+        </div>
+    </div>
+</div>
+
+<!--产品功能截图 左侧图片右侧文字描述-->
+<div class="container screenshoot">
+    <div class="row item">
+        <div class="col-md-5">
+            <img src="../image/assets/case_1.jpg" class="img-circle">
+        </div>
+        <div class="col-md-7">
+            <h2>截图1</h2>
+            <p>截图说明1，截图说明1，截图说明1，截图说明1，截图说明1，</p>
+        </div>
+    </div>
+    <div class="row item">
+        <div class="col-md-7">
+            <h2>截图2</h2>
+            <p>截图说明2，截图说明2，截图说明2，截图说明2，截图说明2，</p>
+        </div>
+        <div class="col-md-5">
+            <img src="../image/assets/case_2.jpg" class="img-circle">
+        </div>
+    </div>
+    <div class="row item">
+        <div class="col-md-5">
+            <img src="../image/assets/case_3.jpg" class="img-circle">
+        </div>
+        <div class="col-md-7">
+            <h2>截图3</h2>
+            <p>截图说明3，截图说明3，截图说明3，截图说明3，截图说明3，</p>
+        </div>
+    </div>
+</div>
+
+
+<!--底部-->
+<div class="container">
+    <footer>
+        微信公众号管家版权所有 2016
+        <a href="">四光年科技</a>
+    </footer>
+</div>
+
+
+</body>
+</html>
