@@ -19,3 +19,6 @@
 }
 
 /*自定义样式*/
+/*列头*/
+.rowHead{ background-color: #CCCCCC}
+.rowBody{ background-color: #c7ddef}
