@@ -1,1 +1,23 @@
-��ͨ
+Git 详细使用方法：http://www.admin10000.com/document/5374.html
+
+1. 登录：
+git config --global user.name "zhujh2015"
+git config --global user.email "zhujunhua0401@126.com"
+2. git clone   https://github.com/zhujh2015/SpringWebNew.git
+3. git init SpringWebNew (--- 新建本地创库地址)
+3. git add text.txt 添加一个文件   在 git 同级的目录下
+    git add -A  添加所有文件
+git add dir1 （ 添加dir1这个目录，目录下的所有文件都被加入 ） 
+Git add f1 f2 （ 添加f1，f2文件） 
+git add . ( 添加当前目录下的所有文件和子目录 )
+4.git commit  -m "提交的备注"  提交备注 
+   git commit -a  -m "提交的备注"  批量提交备注
+   -a不会造成新文件被提交，只能修改。
+5. git push   https://github.com/zhujh2015/SpringWebNew.git
+
+
+前端框架：
+gojs , vue.js ,React.
+后端：
+mybatis plus
+spring boot
