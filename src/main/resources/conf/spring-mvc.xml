@@ -86,8 +86,6 @@
             <ref bean="stringHttpMessageConverter" />
         </mvc:message-converters>
     </mvc:annotation-driven>
-
     <!--引入 定时任务-->
-   <!-- <import resource="classpath:conf/quartzJob.xml" />-->
-
+   <import resource="classpath:conf/quartzJob.xml" />
 </beans>

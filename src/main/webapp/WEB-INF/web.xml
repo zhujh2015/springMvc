@@ -14,6 +14,17 @@
         <param-value>classpath:conf/spring-mvc.xml,classpath:conf/spring-mybatis.xml</param-value>
     </context-param>
 
+    <!-- logback 配置 Begin -->
+    <context-param>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>classpath:conf/logback.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+    </listener>
+    <!-- Log4j 配置 End -->
+
+
     <!-- 配置 Spring MVC DispatchcerServlet 前端控制器 -->
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>

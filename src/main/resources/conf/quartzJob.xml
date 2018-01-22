@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:task="http://www.springframework.org/schema/task"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+	<!--
+	时间大小由小到大排列，从秒开始，顺序为 秒，分，时，天，月，年    *为任意 ？为无限制。 
+	具体如下： 
+	"0/10 * * * * ?" 每10秒触发 
+	"0 0 12 * * ?" 每天中午12点触发 
+	"0 15 10 ? * *" 每天上午10:15触发 
+	"0 15 10 * * ?" 每天上午10:15触发 
+	"0 15 10 * * ? *" 每天上午10:15触发 
+	"0 15 10 * * ? 2005" 2005年的每天上午10:15触发 
+	"0 * 14 * * ?" 在每天下午2点到下午2:59期间的每1分钟触发 
+	"0 0/5 14 * * ?" 在每天下午2点到下午2:55期间的每5分钟触发 
+	"0 0/5 14,18 * * ?" 在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发 
+	"0 0-5 14 * * ?" 在每天下午2点到下午2:05期间的每1分钟触发 
+	"0 10,44 14 ? 3 WED" 每年三月的星期三的下午2:10和2:44触发 
+	"0 15 10 ? * MON-FRI" 周一至周五的上午10:15触发 
+	"0 15 10 15 * ?" 每月15日上午10:15触发 
+	"0 15 10 L * ?" 每月最后一日的上午10:15触发 
+	"0 15 10 ? * 6L" 每月的最后一个星期五上午10:15触发 
+	"0 15 10 ? * 6L 2002-2005" 2002年至2005年的每月的最后一个星期五上午10:15触发 
+	"0 15 10 ? * 6#3" 每月的第三个星期五上午10:15触发 
+	-->
+
+	<!-- ========================测试任务项======================== -->
+	<bean id="dailyTaskJobMethod"
+		  class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!--执行作业的类名-->
+		<property name="targetObject">
+			<ref bean="QuartzJob" />
+		</property>
+		<!-- 要执行的方法名称 -->
+		<property name="targetMethod">
+			<value>executeJob</value>
+		</property>
+	</bean>
+
+	<bean id="DailyTaskCronTriggerBean"
+		  class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="dailyTaskJobMethod"></property>
+		<!-- 每天5点触发 -->
+		<property name="cronExpression" value="0/60 * * * * ?"></property>
+	</bean>
+
+	<!-- ======================== 调度工厂 ======================== -->
+	<bean id="SpringJobSchedulerFactoryBean"
+		  class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="DailyTaskCronTriggerBean" />
+			</list>
+		</property>
+	</bean>
+
+	<task:annotation-driven />
+	<context:component-scan base-package="hello.controller.quartz"></context:component-scan>
+
+</beans>
