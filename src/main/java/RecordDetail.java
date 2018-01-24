@@ -1,7 +1,8 @@
 /**
  * Created by Administrator on 2018/1/9.
+ * 此模块中所包含的内容明细
  */
-public class test {
+public class RecordDetail {
     /*1.spring mvc mybatis
     * 2.bootstrap
     * 3.logback
@@ -15,4 +16,6 @@ public class test {
     AOF，则是换了一个角度来实现持久化，那就是将redis执行过的所有写指令记录下来，在下次redis重新启动时，只要把这些写指令从前到后再重复执行一遍，就可以实现数据恢复了
          即默认的AOF持久化策略是每秒钟fsync一次
     是基于单线程模型实现 高耗时的Redis命令是很危险的，因为会占用唯一的线程*/
+
+    /*序列化机制会把内存中的Java对象转换成与平台无关的二进制流，从而永久地保存在磁盘上或是通过网络传输到另一个网络节点。*/
 }
