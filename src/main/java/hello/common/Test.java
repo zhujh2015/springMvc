@@ -1,6 +1,5 @@
 package hello.common;
 
-import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,15 +33,25 @@ public class Test
 
 
         try {
-            handleRequest("固定",fixedThreadPool);
+
+            ProduceSyn produceSyn=new ProduceSyn();
+            Thread thread1=new Thread(produceSyn);
+
+            ConsumerSyn consumerSyn=new ConsumerSyn();
+            Thread thread2=new Thread(consumerSyn);
+            thread1.start();
+            thread2.start();
+
+
+           /* handleRequest("固定",fixedThreadPool);
             handleRequest("缓存",cacheThreadPool);
             handleRequest("单一",singleThreadPool);
             handleRequest("Timer",scheduledThreadPool);
             fixedThreadPool.shutdown();
-            fixedThreadPool.shutdownNow();/**/
+            fixedThreadPool.shutdownNow();*//**//*
 
-            DelayQueue de=new DelayQueue();/*队列*/
-            de.take();
+            DelayQueue de=new DelayQueue();*//*队列*//*
+            de.take();*/
             /*运行 终止 关闭*/
         } catch (Exception e) {
             e.printStackTrace();

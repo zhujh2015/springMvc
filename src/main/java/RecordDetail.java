@@ -20,6 +20,5 @@ public class RecordDetail {
     /*序列化机制会把内存中的Java对象转换成与平台无关的二进制流，从而永久地保存在磁盘上或是通过网络传输到另一个网络节点。*/
 
 
-    /*阻塞队列BlockingQueue
-    * */
+    /*阻塞队列BlockingQueue*/
 }

@@ -63,7 +63,7 @@ public class TaskQueueThread
                             continue;
                         }
                         executor.execute(task);
-                        logger.info("[at task:" + task + "]   [Time:" + System.currentTimeMillis() + "]");
+                        logger.info("[at task:" + task + "]   [:" + System.currentTimeMillis() + "]");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -92,6 +92,10 @@ public class TaskQueueThread
             t.put(k);
         }
 
+        public int getDelayQueueLength() {
+            return t.size();
+        }
+
         /**
          * 结束任务
          *
@@ -102,15 +106,18 @@ public class TaskQueueThread
         }
 
         public static void main(String[] args) throws InterruptedException {
-            TaskQueueThread taskQueueDaemonThread = TaskQueueThread.getInstance();
+            TaskQueueThread taskQueueThread = TaskQueueThread.getInstance();
             for (int i = 0; i < 10; i++) {
-                taskQueueDaemonThread.put(1000 * (i + 1), new Runnable() {
+                int r = i;
+                taskQueueThread.put(1000 * (i + 1), new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println("now: " + System.currentTimeMillis());
+                        System.out.println("加载队列线程：" + r);
                     }
                 });
             }
-            taskQueueDaemonThread.init();
+            taskQueueThread.init();
+            int rlength=taskQueueThread.getDelayQueueLength();
+            System.out.println(rlength);
         }
 }

@@ -27,21 +27,31 @@ public class OrderDelayItem implements Delayed {
         this.orderCode = orderCode;
     }
 
-    public OrderDelayItem(String orderCode,long expTime,long createTime) {
+    public OrderDelayItem(String orderCode, long expTime, long createTime) {
         super();
         this.orderCode = orderCode;
-        this.expTime = TimeUnit.MILLISECONDS.convert(expTime, TimeUnit.DAYS) + createTime;
+        TimeUnit unit = TimeUnit.SECONDS;
+        //this.expTime = TimeUnit.NANOSECONDS.convert(expTime, TimeUnit.NANOSECONDS) + createTime;
+        this.expTime = System.nanoTime() + unit.toNanos(expTime);//+unit.toNanos(createTime);
+       // System.out.println("实体："+createTime);
     }
-    /*最前面订单出队时间*/
+
+    /*最前面订单出队时间:计算当前时间到执行时间之间还有多长时间。*/
     @Override
     public long getDelay(TimeUnit unit) {
-        return expTime - System.currentTimeMillis();
+       // System.out.println("delay:" + new Date().getTime());
+        long delaylong = unit.convert(expTime - System.nanoTime()
+               // - unit.toNanos(new Date().getTime())
+               , TimeUnit.NANOSECONDS);
+       // System.out.println("delaylong:" + delaylong);
+        return delaylong;
     }
-    /*延迟队列内部比较排序 当前的延迟事件--比较对象延迟时间
-    * 比较订单的顺序*/
+
+    /* 判断队列中元素的顺序谁前谁后。当前元素比队列元素后执行时，返回一个正数，
+       比它先执行时返回一个负数，否则返回0.
+     * 比较订单的顺序*/
     @Override
     public int compareTo(Delayed o) {
         return Long.valueOf(this.expTime).compareTo(Long.valueOf(((OrderDelayItem) o).expTime));
     }
-
 }
