@@ -8,6 +8,7 @@ import hello.other.Collection.WriteThread;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -21,7 +22,7 @@ public class DelayMain implements Runnable {
     private static volatile int rcount = 0;
     private static AtomicInteger rcounta = new AtomicInteger(0);
 
-    private Lock lock = new ReentrantLock();
+
 
     /*获取目前队列
     * 执行移除*/
@@ -83,6 +84,8 @@ public class DelayMain implements Runnable {
     public static void main(String[] args) {
         DelayMain delayMain = new DelayMain();
         // delayMain.CopyOnWriteArrayListTest();
+
+
 
         delayMain.CountTest();
     }
@@ -270,5 +273,19 @@ public class DelayMain implements Runnable {
         executorService.execute(new WriteThread(copyList, "i"));
 
         executorService.execute(new ReadThread(copyList));
+    }
+
+    public void ReenTrantLockTest()
+    {
+        Lock lock = new ReentrantLock();/*true  false 公平所*/
+        Condition condition=lock.newCondition();
+        Thread.interrupted();
+
+        try {
+
+            condition.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
